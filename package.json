@@ -1,0 +1,12 @@
+{
+  "name": "sequence",
+  "version": "0.1.0",
+  "description": "Tiny game with geometric shapes in sequence.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "author": "Wes Basinger",
+  "license": "MIT",
+  "private": true
+}
