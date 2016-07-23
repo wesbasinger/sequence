@@ -18,9 +18,38 @@ function randomColor() {
 
 var Rectangle = function(originX, originY) {
   return  {
+    name: "rectangle",
     firstPointX : originX,
     firstPointY : originY,
     secondPointX : originX + 50,
+    secondPointY: originY,
+    thirdPointX: originX + 50,
+    thirdPointY : originY + 50,
+    fourthPointX: originX,
+    fourthPointY: originY + 50
+  }
+}
+
+var Diamond = function(originX, originY) {
+  return  {
+    name: "diamond",
+    firstPointX : originX + 25,
+    firstPointY : originY,
+    secondPointX : originX + 50,
+    secondPointY: originY + 25,
+    thirdPointX: originX + 25,
+    thirdPointY : originY + 50,
+    fourthPointX: originX,
+    fourthPointY: originY + 25
+  }
+}
+
+var Triangle = function(originX, originY) {
+  return  {
+    name: "triangle",
+    firstPointX : originX,
+    firstPointY : originY + 50,
+    secondPointX : originX + 25,
     secondPointY: originY,
     thirdPointX: originX + 50,
     thirdPointY : originY + 50,
@@ -40,11 +69,3 @@ var drawShape = function(shapeObj, ctx, color) {
   ctx.fillStyle = color;
   ctx.fill();
 }
-
-var rect = new Rectangle(30, 30)
-drawShape(rect, ctx, "blue");
-
-var newRect = new Rectangle(90, 30);
-drawShape(newRect, ctx, "green")
-
-console.log(JSON.stringify(rect))
