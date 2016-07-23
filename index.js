@@ -30,6 +30,14 @@ var Rectangle = function(originX, originY) {
   }
 }
 
+var Circle = function(originX, originY) {
+  return {
+    name: 'circle',
+    originX: originX,
+    originY: originY
+  }
+}
+
 var Diamond = function(originX, originY) {
   return  {
     name: "diamond",
@@ -59,13 +67,21 @@ var Triangle = function(originX, originY) {
 }
 
 var drawShape = function(shapeObj, ctx, color) {
-  ctx.beginPath();
-  ctx.moveTo(shapeObj.firstPointX, shapeObj.firstPointY);
-  ctx.lineTo(shapeObj.secondPointX, shapeObj.secondPointY);
-  ctx.lineTo(shapeObj.thirdPointX, shapeObj.thirdPointY);
-  ctx.lineTo(shapeObj.fourthPointX, shapeObj.fourthPointY);
-  ctx.lineTo(shapeObj.firstPointX, shapeObj.firstPointY);
-  ctx.closePath();
-  ctx.fillStyle = color;
-  ctx.fill();
+  if (shapeObj.name === "circle") {
+    ctx.beginPath();
+    ctx.arc(shapeObj.originX + 25, shapeObj.originY + 25, 25, 0, Math.PI*2);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  } else {
+    ctx.beginPath();
+    ctx.moveTo(shapeObj.firstPointX, shapeObj.firstPointY);
+    ctx.lineTo(shapeObj.secondPointX, shapeObj.secondPointY);
+    ctx.lineTo(shapeObj.thirdPointX, shapeObj.thirdPointY);
+    ctx.lineTo(shapeObj.fourthPointX, shapeObj.fourthPointY);
+    ctx.lineTo(shapeObj.firstPointX, shapeObj.firstPointY);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
 }
