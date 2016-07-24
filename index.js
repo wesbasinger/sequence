@@ -3,6 +3,8 @@ var Triangle = require('./Shapes/Triangle');
 var Diamond = require('./Shapes/Diamond');
 var Rectangle = require('./Shapes/Rectangle');
 var drawShape = require('./utils').drawShape;
+var removeDuplicates = require('./utils').removeDuplicates;
+
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -27,6 +29,11 @@ var makeSequence = function() {
 }
 
 var shapes = makeSequence();
+var double = shapes.concat(shapes);
+var quad = double.concat(double);
+var oct = quad.concat(quad);
+
+var simplifiedShapes = removeDuplicates(shapes)
 
 shapes.forEach(shape => {
   drawShape(shape, ctx);

@@ -31,5 +31,14 @@ module.exports = {
       ctx.fillStyle = shapeObj.color;
       ctx.fill();
     }
+  },
+  removeDuplicates: function(objArray) {
+    var bigObj = {};
+    objArray.forEach(obj => {
+      if (!bigObj[JSON.stringify({color: obj.color, name: obj.name})]) {
+        bigObj[JSON.stringify({color: obj.color, name: obj.name})] = obj;
+      }
+    });
+    return Object.keys(bigObj);
   }
 }
