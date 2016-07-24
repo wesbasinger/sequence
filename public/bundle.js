@@ -89,7 +89,7 @@
 	    drawShape(shape, ctx);
 	  });
 
-	  var randomNthTerm = Math.floor(Math.random() * (20 - 6)) + 6;
+	  var randomNthTerm = Math.floor(Math.random() * (10 - 6)) + 6;
 	  var answer = shapes[randomNthTerm % 5 - 1];
 
 	  var nthTerm = document.getElementById('nth');
