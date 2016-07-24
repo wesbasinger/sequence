@@ -50,6 +50,7 @@ simplifiedShapes.forEach(shape => {
   sanitizedShapes.push(JSON.parse(shape));
 })
 
+
 sanitizedShapes.forEach(shape => {
   var choiceDiv = document.getElementById('choices')
   var btn = document.createElement("BUTTON");
@@ -57,5 +58,13 @@ sanitizedShapes.forEach(shape => {
   var t = document.createTextNode(tstring);
   btn.appendChild(t);
   btn.setAttribute("value", tstring);
+  btn.addEventListener('click', function(e) {
+    var fb = document.getElementById('feedback');
+    if (e.target.value === answer.color + " " + answer.name) {
+      fb.innerText = "Good job, you got it!";
+    } else {
+      fb.innerText = "Nope, sorry, try again.";
+    }
+  })
   choiceDiv.appendChild(btn);
 });
