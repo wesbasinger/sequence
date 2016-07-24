@@ -4,7 +4,7 @@
   "description": "Tiny game with geometric shapes in sequence.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "node app-server.js"
   },
   "author": "Wes Basinger",
   "license": "MIT",
