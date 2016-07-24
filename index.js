@@ -43,11 +43,19 @@ var gameLoop = function() {
     drawShape(shape, ctx);
   });
 
-  var randomNthTerm = Math.floor(Math.random() * (10 - 6)) + 6;
+  var randomNthTerm = Math.floor(Math.random() * (20 - 6)) + 6;
   var answer = shapes[randomNthTerm % 5 - 1];
 
   var nthTerm = document.getElementById('nth');
-  nthTerm.innerText = randomNthTerm;
+  if (randomNthTerm === 1) {
+    nthTerm.innerText = randomNthTerm + "st";
+  } else if (randomNthTerm === 2) {
+    nthTerm.innerText = randomNthTerm + "nd";
+  } else if (randomNthTerm === 3) {
+    nthTerm.innerText = randomNthTerm + "rd"
+  } else {
+    nthTerm.innerText = randomNthTerm + "th";
+  }
 
   var simplifiedShapes = removeDuplicates(shapes)
   var sanitizedShapes = [];
@@ -59,12 +67,12 @@ var gameLoop = function() {
 
   sanitizedShapes.forEach(shape => {
     var btn = document.createElement("BUTTON");
-    var tstring = shape.color + " " + shape.name;
+    var tstring = shape.color[0].toUpperCase() + shape.color.substring(1) + " " + shape.name[0].toUpperCase() + shape.name.substring(1);
     var t = document.createTextNode(tstring);
     btn.appendChild(t);
     btn.setAttribute("value", tstring);
     btn.addEventListener('click', function(e) {
-      if (e.target.value === answer.color + " " + answer.name) {
+      if (e.target.value.toLowerCase() === answer.color + " " + answer.name) {
         fb.innerText = "Good job, you got it!";
         newGame();
       } else {

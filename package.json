@@ -8,5 +8,8 @@
   },
   "author": "Wes Basinger",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
