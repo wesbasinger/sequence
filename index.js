@@ -33,8 +33,27 @@ var double = shapes.concat(shapes);
 var quad = double.concat(double);
 var oct = quad.concat(quad);
 
-var simplifiedShapes = removeDuplicates(shapes)
-
 shapes.forEach(shape => {
   drawShape(shape, ctx);
+});
+
+var randomNthTerm = Math.floor(Math.random() * (10 - 6)) + 6;
+
+var nthTerm = document.getElementById('nth');
+nthTerm.innerText = randomNthTerm;
+
+var simplifiedShapes = removeDuplicates(shapes)
+var sanitizedShapes = [];
+
+simplifiedShapes.forEach(shape => {
+  sanitizedShapes.push(JSON.parse(shape));
+})
+
+sanitizedShapes.forEach(shape => {
+  var choiceDiv = document.getElementById('choices')
+  var btn = document.createElement("BUTTON");
+  var tstring = shape.color + " " + shape.name;
+  var t = document.createTextNode(tstring);
+  btn.appendChild(t);
+  choiceDiv.appendChild(btn);
 });

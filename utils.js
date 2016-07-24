@@ -39,6 +39,6 @@ module.exports = {
         bigObj[JSON.stringify({color: obj.color, name: obj.name})] = obj;
       }
     });
-    return Object.keys(bigObj);
+    return(Object.keys(bigObj));
   }
 }
