@@ -38,6 +38,7 @@ shapes.forEach(shape => {
 });
 
 var randomNthTerm = Math.floor(Math.random() * (10 - 6)) + 6;
+var answer = shapes[randomNthTerm % 5 - 1];
 
 var nthTerm = document.getElementById('nth');
 nthTerm.innerText = randomNthTerm;
@@ -55,5 +56,6 @@ sanitizedShapes.forEach(shape => {
   var tstring = shape.color + " " + shape.name;
   var t = document.createTextNode(tstring);
   btn.appendChild(t);
+  btn.setAttribute("value", tstring);
   choiceDiv.appendChild(btn);
 });
